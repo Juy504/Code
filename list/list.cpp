@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 using namespace std;
+
 struct Node
 {
 	int _data;
