@@ -1,7 +1,6 @@
 /***************************
  A string class
  ***************************/
-
 #include <iostream>
 #include <string.h>
 using namespace std;
