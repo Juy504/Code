@@ -54,7 +54,37 @@ public:
 			right = isPost(arr+i,len-i-1);
 		return left&&right;
 	}
+
+	void ConvertDlist()
+	{
+		ConvertDlist_(_root);
+	}
 protected:
+	Node<T>* ConvertDlist_(NOde<T>* rt)
+	{
+		if(rt == NULL)
+			return NULL;
+		Node<T>* lastNodeList = NULL;// define a list Node point to list tail
+		Convert(rt,&lastNodeList);
+		while(lastNodeList !=NULL && lastNodeList->left !=NULL)
+		{
+			lastNodeList = lastNodeList->left;
+		}
+		return lastNodeList;
+	}
+	void Convert(Node<T>* rt, Node<T>**lastNodeList)
+	{
+		if(rt == NULL)
+			return;
+		Node<T>* cur = rt;
+		Convert(cur->left,lastNodeList);
+		cur->left = *lastNodeList;
+
+		if(*curLastList != NULL)
+			(*lastNodeList)->right = cur;
+		*lastNodeList = cur; //lastNodeList point to the list tail
+		Convert(cur->right,lastNodeList);
+	}
 
 	void comFather_(Node<T>* root,char a,char b)
 	{
